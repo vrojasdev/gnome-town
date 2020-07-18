@@ -1,5 +1,5 @@
 import { actionCreatorFactory } from 'typescript-fsa';
-import { Status } from '../models';
+//import { Status } from '../models';
 
 enum Type {
     SetLoading = 'SET_LOADING',
@@ -10,7 +10,7 @@ enum Type {
 const create = actionCreatorFactory('STATUS');
 
 export const StatusActions = {
-    setLoading: create<Status>(Type.SetLoading),
-    setFiltering: create<Status>(Type.SetFiltering),
-    setSelected: create<Status>(Type.SetSelected)
+    setLoading: create<boolean>(Type.SetLoading),
+    setFiltering: create<boolean>(Type.SetFiltering),
+    setSelected: create<number>(Type.SetSelected)
 }

@@ -1,5 +1,5 @@
 import { actionCreatorFactory } from 'typescript-fsa';
-import { Results } from '../models';
+//import { Results } from '../models';
 
 enum Type {
     SetResults = 'SET_RESULTS'
@@ -8,5 +8,5 @@ enum Type {
 const create = actionCreatorFactory('RESULTS');
 
 export const ResultsActions = {
-    setResults: create<Results>(Type.SetResults)
+    setResults: create<Array<number>>(Type.SetResults)
 }

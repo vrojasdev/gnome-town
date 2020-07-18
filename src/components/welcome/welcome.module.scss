@@ -1,0 +1,62 @@
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(.5);
+        -webkit-transform: scale(.5);
+        -moz-transform: scale(.5);
+        -ms-transform: scale(.5);
+        -o-transform: scale(.5);
+}
+    to {
+        opacity: 1;
+        transform: scale(1);
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+    }
+}
+
+.welcome {
+    color: #ffffff;
+    min-height: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    line-height: 2;
+    max-width: 100%;
+    word-break: break-all;
+
+    .message {
+        position: relative;
+        animation: fadeIn 1.5s ease;
+        -webkit-animation: fadeIn 1.5s ease;
+    }
+}
+
+
+
+@media (min-width: 400px) {
+    .welcome {
+        font-size: 2em;
+    }
+}
+
+@media (min-width: 600px) {
+    .welcome {
+        font-size: 2.5em;
+    }
+}
+
+@media (min-width: 900px) {
+    .welcome {
+        font-size: 3.5em;
+    }
+}
+
+@media (min-width: 1200px) {
+    .welcome {
+        font-size: 4.5em;
+    }
+}

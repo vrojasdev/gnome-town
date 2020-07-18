@@ -1,0 +1,34 @@
+.topBar {
+    text-align: left;
+    padding: 0 2em;
+
+    .townName {
+        display: inline-block;
+        line-height: 3;
+        font-size: 2em;
+    }
+
+    .search {
+        float: right;
+        padding: 2em;
+
+        img {
+            width: 2em;
+            cursor: pointer;
+            transform-origin: bottom right;
+            transition: transform .3s ease;
+            -webkit-transition: transform .3s ease;
+            -moz-transition: transform .3s ease;
+            -ms-transition: transform .3s ease;
+            -o-transition: transform .3s ease;
+            
+            &:hover {
+                transform: scale(1.2);
+                -webkit-transform: scale(1.2);
+                -moz-transform: scale(1.2);
+                -ms-transform: scale(1.2);
+                -o-transform: scale(1.2);
+            }
+        }
+    }
+}

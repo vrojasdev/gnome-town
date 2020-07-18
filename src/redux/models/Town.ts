@@ -5,7 +5,7 @@ export interface Gnome {
     age: number,
     weight: number,
     height: number,
-    hairColor: string,
+    "hair_color": string,
     professions: Array<string>,
     friends: Array<string>
 }

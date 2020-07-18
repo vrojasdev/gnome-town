@@ -1,0 +1,11 @@
+.cardsWrapper {
+    clear: both;
+
+    .innerWrapper {
+        clear: both;
+        display: flex;
+        align-content: space-between;
+        justify-content: space-between;
+        flex-flow: wrap;
+    }
+}

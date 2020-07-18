@@ -1,5 +1,5 @@
 import { actionCreatorFactory } from 'typescript-fsa';
-import { Filters } from '../models';
+//import { Filters } from '../models';
 
 enum Type {
     SetFilterName = 'SET_FILTER_NAME',
@@ -11,20 +11,20 @@ enum Type {
     SetFilterMaxHeight = 'SET_FILTER_MAX_HEIGHT',
     SetFilterHairColor = 'SET_FILTER_HAIR_COLOR',
     SetFilterProfessions = 'SET_FILTER_PROFESSIONS',
-    SetFilterResults = 'SET_FILTER_RESULTS'
+    //SetFilterResults = 'SET_FILTER_RESULTS'
 }
 
 const create = actionCreatorFactory('FILTERS');
 
 export const FilterActions = {
-    setFilterName: create<Filters>(Type.SetFilterName),
-    setFilterMinAge: create<Filters>(Type.SetFilterMinAge),
-    setFilterMaxAge: create<Filters>(Type.SetFilterMaxAge),
-    setFilterMinWeight: create<Filters>(Type.SetFilterMinWeight),
-    setFilterMaxWeight: create<Filters>(Type.SetFilterMaxWeight),
-    setFilterMinHeight: create<Filters>(Type.SetFilterMinHeight),
-    setFilterMaxHeight: create<Filters>(Type.SetFilterMaxHeight),
-    setFilterHairColor: create<Filters>(Type.SetFilterHairColor),
-    setFilterProfessions: create<Filters>(Type.SetFilterProfessions),
-    setFilterResults: create<Filters>(Type.SetFilterResults)
+    setFilterName: create<string>(Type.SetFilterName),
+    setFilterMinAge: create<number>(Type.SetFilterMinAge),
+    setFilterMaxAge: create<number>(Type.SetFilterMaxAge),
+    setFilterMinWeight: create<number>(Type.SetFilterMinWeight),
+    setFilterMaxWeight: create<number>(Type.SetFilterMaxWeight),
+    setFilterMinHeight: create<number>(Type.SetFilterMinHeight),
+    setFilterMaxHeight: create<number>(Type.SetFilterMaxHeight),
+    setFilterHairColor: create<Array<string>>(Type.SetFilterHairColor),
+    setFilterProfessions: create<Array<string>>(Type.SetFilterProfessions),
+    //setFilterResults: create<Array<number>>(Type.SetFilterResults)
 }

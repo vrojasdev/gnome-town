@@ -7,7 +7,7 @@ const initialResults:Results = {
 }
 
 export const resultsReducer = reducerWithInitialState(initialResults)
-    .case(ResultsActions.ResultsActions.setResults, (state, { active }) => {
+    .case(ResultsActions.ResultsActions.setResults, (state, active) => {
         let temp = {...state};
         temp.active = [...active];
         return { ...temp }
