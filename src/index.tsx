@@ -1,10 +1,16 @@
+import 'react-app-polyfill/ie11';
+import 'react-app-polyfill/stable';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
-import { store } from './app/store';
+import { configureStore } from './redux';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
+
+import './index.css';
+
+const store = configureStore();
+
 
 ReactDOM.render(
   <React.StrictMode>
