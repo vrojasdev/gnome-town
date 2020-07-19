@@ -9,13 +9,15 @@ import classes from './topBar.module.scss';
 
 interface TopBarProps {
     townName: string,
+    selected: number,
     setFiltering: typeof StatusActions.setFiltering,
     setSelected: typeof StatusActions.setSelected
 }
 
 const mapStateToProps = (state:RootState) => {
     return {
-        townName: state.town.name
+        townName: state.town.name,
+        selected: state.status.selected
     }
 }
 
@@ -27,7 +29,9 @@ const mapDispatchToProps = (dispatch:Dispatch): Pick<TopBarProps, 'setFiltering'
 const TopBar = (props:TopBarProps) => {
     const handleStartSearch = () => {
         props.setFiltering(true);
-        props.setSelected(-1);
+        if(props.selected !== -1) {
+            props.setSelected(-1);
+        }
     }
 
     return (

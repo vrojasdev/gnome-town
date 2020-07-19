@@ -12,7 +12,8 @@ interface CardsWrapperProps {
     arrayOfActive: Array<number>,
     filtering: boolean,
     gnomeSelected: number,
-    setSelected: typeof StatusActions.StatusActions.setSelected   
+    setSelected: typeof StatusActions.StatusActions.setSelected,
+    setFiltering: typeof StatusActions.StatusActions.setFiltering 
 }
 
 const mapStateToProps = (state:RootState) => {
@@ -24,13 +25,17 @@ const mapStateToProps = (state:RootState) => {
     }
 }
 
-const mapDispatchToProps = (dispatch:Dispatch): Pick<CardsWrapperProps, 'setSelected' > => ({
-	setSelected: bindActionCreators(StatusActions.StatusActions.setSelected, dispatch)
+const mapDispatchToProps = (dispatch:Dispatch): Pick<CardsWrapperProps, 'setSelected' | 'setFiltering' > => ({
+    setSelected: bindActionCreators(StatusActions.StatusActions.setSelected, dispatch),
+    setFiltering: bindActionCreators(StatusActions.StatusActions.setFiltering, dispatch)
 });
 
 const CardsWrapper = (props:CardsWrapperProps) => {
     const handleClickOnCard = (index:number) => {
         props.setSelected(index);
+        if(props.filtering) {
+            props.setFiltering(false);
+        }
     }
 
     const backToList = (e:any) => {

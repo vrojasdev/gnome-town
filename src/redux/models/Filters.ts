@@ -1,4 +1,4 @@
-export interface Filters {
+export interface FilterOptions {
     name: string,
     minAge: number,
     maxAge: number,
@@ -10,3 +10,7 @@ export interface Filters {
     professions: Array<string>
 }
 
+export interface Filters {
+    active: FilterOptions,
+    resetValues: FilterOptions
+}

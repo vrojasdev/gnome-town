@@ -1,0 +1,44 @@
+.row {
+    position: relative;
+
+    label {
+        display: block;
+        margin-bottom: .5em;
+    }
+
+    input {
+        display: inline-block;
+        width: 100%;
+        max-width: 500px;
+        outline: none;
+        border: none;
+        background-color: transparent;
+        padding: .5em;
+        border-bottom: 1px solid #aaaaaa;
+        color: #ffffff;
+        font-size: 1em;
+
+        &:focus,
+        &:active {
+            border-color: #ffffff;
+            outline: none;
+        }
+    }
+
+    img {
+        display: inline-block;
+        margin-left: 1em;
+        background-color: #696969;
+        height: 1.5em;
+        width: 2em;
+        position: absolute;
+        border-radius: 50%;
+        bottom: 0;
+        opacity: .5;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+}

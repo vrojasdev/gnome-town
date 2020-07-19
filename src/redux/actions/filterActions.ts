@@ -1,5 +1,5 @@
 import { actionCreatorFactory } from 'typescript-fsa';
-//import { Filters } from '../models';
+import { FilterOptions } from '../models';
 
 enum Type {
     SetFilterName = 'SET_FILTER_NAME',
@@ -11,7 +11,7 @@ enum Type {
     SetFilterMaxHeight = 'SET_FILTER_MAX_HEIGHT',
     SetFilterHairColor = 'SET_FILTER_HAIR_COLOR',
     SetFilterProfessions = 'SET_FILTER_PROFESSIONS',
-    //SetFilterResults = 'SET_FILTER_RESULTS'
+    SetFilterResetValues = 'SET_FILTER_RESET_VALUES'
 }
 
 const create = actionCreatorFactory('FILTERS');
@@ -26,5 +26,5 @@ export const FilterActions = {
     setFilterMaxHeight: create<number>(Type.SetFilterMaxHeight),
     setFilterHairColor: create<Array<string>>(Type.SetFilterHairColor),
     setFilterProfessions: create<Array<string>>(Type.SetFilterProfessions),
-    //setFilterResults: create<Array<number>>(Type.SetFilterResults)
+    setFilterResetValues: create<FilterOptions>(Type.SetFilterResetValues)
 }
