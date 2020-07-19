@@ -26,7 +26,7 @@ const Info = (props:InfoProps) => {
 
     return (
         <div className={classes.info}>
-            <Tabs handleTabChange={handleTabChange} />
+            <Tabs handleTabChange={handleTabChange} tabActive={panelActive} />
             <Panels 
                 active={panelActive}
                 appeareance={props.appeareance}

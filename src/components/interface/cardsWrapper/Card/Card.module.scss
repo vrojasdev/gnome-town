@@ -1,17 +1,42 @@
-.card {
-    max-width: 230px;
+@keyframes appear {
+    from {
+        transform: scale(.1);
+        -webkit-transform: scale(.1);
+        -moz-transform: scale(.1);
+        -ms-transform: scale(.1);
+        -o-transform: scale(.1);
+    }
+    to {
+        transform: scale(1);
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+    }
+  }
+  
+  .card {
+    width: 230px;
     margin: 1em;
+    background-color: #484848;
+    border-radius: 1em;
+    padding: 1em;
+    cursor: pointer;
+    opacity: .6;
+    transition: opacity .3s ease;
+    -webkit-transition: opacity .3s ease;
+    -moz-transition: opacity .3s ease;
+    -ms-transition: opacity .3s ease;
+    -o-transition: opacity .3s ease;
+    animation: appear .3s ease;
+    -webkit-animation: appear .3s ease;
+
+    &:hover {
+        opacity: 1;
+        box-shadow: 4px 4px 6px rgba(0,0,0,.2);
+    }
 }
 
 .active {
-    // transform: translate(50%);
-    // -webkit-transform: translate(50%);
-    // -moz-transform: translate(50%);
-    // -ms-transform: translate(50%);
-    // -o-transform: translate(50%);
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: red;
+    opacity: 0;
 }

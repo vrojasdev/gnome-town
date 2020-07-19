@@ -2,14 +2,21 @@
 
 
     .row {
-
+        text-align: left;
 
         .label {
-
+            display: inline-block;
+            width: 130px;
+            font-size: .8em;
+            text-align: right;
+            margin-right: 2em;
+            line-height: 2;
+            text-transform: uppercase;
+            color: #ffd17c;
         }
 
         .data {
-            
+            font-size: .8em;
         }
     }
 }

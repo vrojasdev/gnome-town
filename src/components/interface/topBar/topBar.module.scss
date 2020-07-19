@@ -1,16 +1,21 @@
 .topBar {
     text-align: left;
     padding: 0 2em;
+    background-color: #181818;
+    position: sticky;
+    top: 0;
+    user-select: none;
+    z-index: 2;
 
     .townName {
         display: inline-block;
         line-height: 3;
-        font-size: 2em;
+        font-size: 1.2em;
     }
 
     .search {
         float: right;
-        padding: 2em;
+        padding: .6em;
 
         img {
             width: 2em;
@@ -29,6 +34,18 @@
                 -ms-transform: scale(1.2);
                 -o-transform: scale(1.2);
             }
+        }
+    }
+}
+
+@media (min-width: 600px) {
+    .topBar {
+        .townName {
+            font-size: 2em;
+        }
+
+        .search {
+            padding: 2em;
         }
     }
 }

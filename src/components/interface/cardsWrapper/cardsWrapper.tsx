@@ -1,7 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { RootState, Gnome } from '../../../redux';
+import { bindActionCreators, Dispatch } from 'redux';
+import { RootState, Gnome, StatusActions } from '../../../redux';
 import Card from './Card/Card';
+import CardWithDetails from './Card/CardWithDetails';
 
 import classes from './cardsWrapper.module.scss';
 
@@ -9,7 +11,8 @@ interface CardsWrapperProps {
     population: Array<Gnome>,
     arrayOfActive: Array<number>,
     filtering: boolean,
-    gnomeSelected: number    
+    gnomeSelected: number,
+    setSelected: typeof StatusActions.StatusActions.setSelected   
 }
 
 const mapStateToProps = (state:RootState) => {
@@ -21,21 +24,49 @@ const mapStateToProps = (state:RootState) => {
     }
 }
 
+const mapDispatchToProps = (dispatch:Dispatch): Pick<CardsWrapperProps, 'setSelected' > => ({
+	setSelected: bindActionCreators(StatusActions.StatusActions.setSelected, dispatch)
+});
+
 const CardsWrapper = (props:CardsWrapperProps) => {
+    const handleClickOnCard = (index:number) => {
+        props.setSelected(index);
+    }
+
+    const backToList = (e:any) => {
+        if(e.currentTarget === e.target) {
+            props.setSelected(-1);
+        }
+    }
+
     return (
-        <div className={classes.cardsWrapper}>
+        <div className={`${classes.cardsWrapper} ${props.gnomeSelected !== -1 && classes.inPreview}`}>
             <div className={classes.innerWrapper}>
                 {props.population.map(
                     gnome => <Card 
                         key={gnome.id} 
                         index={gnome.id}
-                        info={gnome} 
-                        selected={props.gnomeSelected} 
+                        gnomeName={gnome.name}
+                        gnomeThumbnail={gnome.thumbnail}
+                        selected={props.gnomeSelected}
+                        handleClick={handleClickOnCard}
                     />
                 )}
             </div>
+            { props.gnomeSelected !== -1 &&
+                <div 
+                    className={classes.cardZoom}
+                    onClick={backToList}
+                >
+                    <CardWithDetails
+                        key={props.population[props.gnomeSelected].hair_color}
+                        index={props.population[props.gnomeSelected].id}
+                        info={props.population[props.gnomeSelected]}
+                    />
+                </div>
+            }
         </div>
     )
 }
 
-export default connect(mapStateToProps)(React.memo(CardsWrapper));
+export default connect(mapStateToProps, mapDispatchToProps)(React.memo(CardsWrapper));

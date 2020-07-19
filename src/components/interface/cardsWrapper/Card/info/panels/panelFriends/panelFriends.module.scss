@@ -1,7 +1,26 @@
 .friends {
-
+    padding: 0 .5em;
 
     .row {
-        
+        display: inline-block;
+        padding: 0 .5em;
+        line-height: 2;
+        background-color: #c3561b;
+        border-radius: .8em;
+        margin: .2em;
+        font-size: .6em;
+
+        &:nth-child(odd) {
+            background-color: #c1b35f;
+        }
+    }
+}
+
+
+@media (min-width: 600px) {
+    .friends {
+        .row {
+            font-size: .8em;
+        }
     }
 }

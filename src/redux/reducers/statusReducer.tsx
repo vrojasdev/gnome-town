@@ -5,7 +5,7 @@ import { reducerWithInitialState } from 'typescript-fsa-reducers';
 const initialStatus:Status = {
     loading: true,
     filtering: false,
-    selected: 3
+    selected: -1
 }
 
 export const statusReducer = reducerWithInitialState(initialStatus)

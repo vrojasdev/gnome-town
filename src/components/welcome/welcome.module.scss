@@ -27,6 +27,7 @@
     line-height: 2;
     max-width: 100%;
     word-break: break-all;
+    height: 100vh; // need to be specified for IE
 
     .message {
         position: relative;

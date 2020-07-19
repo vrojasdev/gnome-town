@@ -2,20 +2,30 @@ import React from 'react';
 import classes from './tabs.module.scss';
 
 interface TabsProps {
-    handleTabChange: (index:number) => void;
+    handleTabChange: (index:number) => void,
+    tabActive: number
 }
 
 const Tabs = (props:TabsProps) => {
     return(
         <div className={classes.tabs}>
             <ul>
-                <li onClick={() => props.handleTabChange(0)}>
+                <li 
+                    className={props.tabActive === 0 ? classes.active : ''} 
+                    onClick={() => props.handleTabChange(0)}
+                >
                     Appeareance
                 </li>
-                <li onClick={() => props.handleTabChange(1)}>
+                <li 
+                    className={props.tabActive === 1 ? classes.active : ''} 
+                    onClick={() => props.handleTabChange(1)}
+                >
                     Professions
                 </li>
-                <li onClick={() => props.handleTabChange(2)}>
+                <li 
+                    className={props.tabActive === 2 ? classes.active : ''} 
+                    onClick={() => props.handleTabChange(2)}
+                >
                     Friends
                 </li>
             </ul>

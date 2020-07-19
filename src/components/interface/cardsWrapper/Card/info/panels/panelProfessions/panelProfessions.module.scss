@@ -1,7 +1,26 @@
 .professions {
-
+    padding: 0 .5em;
 
     .row {
-        
+        display: inline-block;
+        padding: 0 .5em;
+        line-height: 2;
+        background-color: #2284af;
+        border-radius: .8em;
+        margin: .2em;
+        font-size: .6em;
+
+        &:nth-child(odd) {
+            background-color: #459e90;
+        }
+    }
+}
+
+
+@media (min-width: 600px) {
+    .professions {
+        .row {
+            font-size: .8em;
+        }
     }
 }

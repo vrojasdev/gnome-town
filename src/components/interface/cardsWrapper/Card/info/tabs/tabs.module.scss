@@ -1,13 +1,38 @@
 .tabs {
+    background-color: #181818;
+    border-radius: .5em;
+    -webkit-border-radius: .5em;
+    -moz-border-radius: .5em;
+    -ms-border-radius: .5em;
+    -o-border-radius: .5em;
 
-
-    ul {
+    ul{
         list-style-type: none;
         margin: 0;
         padding: 0;
+        display: flex;
+        justify-content: space-between;
 
         li {
-            display: inline-block;
+            color: #888888;
+            font-size: .6em;
+            line-height: 3;
+            padding: 0 .4em;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: color .2s ease;
+            -webkit-transition: color .2s ease;
+            -moz-transition: color .2s ease;
+            -ms-transition: color .2s ease;
+            -o-transition: color .2s ease;
+
+            &:hover{
+                color: #ffffff;
+            }
+
+            &.active{
+                color: #ffffff;
+            }
         }
     }
 }
