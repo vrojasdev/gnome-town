@@ -1,22 +1,28 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
-import { StatusActions } from '../../../../redux';
+import { StatusActions, FilterActions } from '../../../../redux';
 
 import closeBtn from '../../../../assets/img/close.svg';
 import classes from './top.module.scss';
 
 interface TopProps {
-    setFiltering: typeof StatusActions.StatusActions.setFiltering
+    setFiltering: typeof StatusActions.StatusActions.setFiltering,
+    clearing: typeof StatusActions.StatusActions.setClearFilters,
+    clearFilters: typeof FilterActions.FilterActions.clearActiveFilterValues
 }
 
-const mapDispatchToProps = (dispatch:Dispatch): Pick<TopProps, 'setFiltering' > => ({
-	setFiltering: bindActionCreators(StatusActions.StatusActions.setFiltering, dispatch)
+const mapDispatchToProps = (dispatch:Dispatch): Pick<TopProps, 'setFiltering' | 'clearFilters' | 'clearing' > => ({
+    setFiltering: bindActionCreators(StatusActions.StatusActions.setFiltering, dispatch),
+    clearFilters: bindActionCreators(FilterActions.FilterActions.clearActiveFilterValues, dispatch),
+    clearing: bindActionCreators(StatusActions.StatusActions.setClearFilters, dispatch)
 });
 
 const Top = (props:TopProps) => {
     const handleClearFilters = () => {
         //  put all filters back to their default value
+        props.clearFilters();
+        props.clearing(true);
     }
 
     return (

@@ -5,7 +5,8 @@ import { reducerWithInitialState } from 'typescript-fsa-reducers';
 const initialStatus:Status = {
     loading: true,
     filtering: false,
-    selected: -1
+    selected: -1,
+    clearFilters: false
 }
 
 export const statusReducer = reducerWithInitialState(initialStatus)
@@ -24,3 +25,8 @@ export const statusReducer = reducerWithInitialState(initialStatus)
         temp.selected = selected;
         return { ...temp }
     })
+    .case(StatusActions.StatusActions.setClearFilters, (state, clearFilters) => {
+        let temp = { ...state }
+        temp.clearFilters = clearFilters;
+        return { ...temp }
+    });

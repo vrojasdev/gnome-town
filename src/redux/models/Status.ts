@@ -1,5 +1,6 @@
 export interface Status {
     loading: boolean,
     filtering: boolean,
-    selected: number
+    selected: number,
+    clearFilters: boolean
 }

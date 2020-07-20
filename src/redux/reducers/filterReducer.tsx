@@ -15,8 +15,8 @@ const initialFilterValues:FilterOptions = {
 }
 
 const initialFilter:Filters = {
-    active: initialFilterValues,
-    resetValues: initialFilterValues
+    active: { ...initialFilterValues },
+    resetValues: { ...initialFilterValues }
 }
 
 export const filterReducer = reducerWithInitialState(initialFilter)
@@ -68,5 +68,11 @@ export const filterReducer = reducerWithInitialState(initialFilter)
     .case(FilterActions.FilterActions.setFilterResetValues, (state,  resetValues ) => {
         let temp = {...state};
         temp.resetValues = { ...resetValues };
+        return { ...temp }
+    })
+    .case(FilterActions.FilterActions.clearActiveFilterValues, (state) => {
+        let temp = {...state};
+        let resetValues = temp.resetValues;
+        temp.active = { ...resetValues };
         return { ...temp }
     });

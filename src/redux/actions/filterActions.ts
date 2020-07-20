@@ -11,7 +11,8 @@ enum Type {
     SetFilterMaxHeight = 'SET_FILTER_MAX_HEIGHT',
     SetFilterHairColor = 'SET_FILTER_HAIR_COLOR',
     SetFilterProfessions = 'SET_FILTER_PROFESSIONS',
-    SetFilterResetValues = 'SET_FILTER_RESET_VALUES'
+    SetFilterResetValues = 'SET_FILTER_RESET_VALUES',
+    ClearActiveFilterValues = 'CLEAR_ACTIVE_FILTER_VALUES'
 }
 
 const create = actionCreatorFactory('FILTERS');
@@ -26,5 +27,6 @@ export const FilterActions = {
     setFilterMaxHeight: create<number>(Type.SetFilterMaxHeight),
     setFilterHairColor: create<Array<string>>(Type.SetFilterHairColor),
     setFilterProfessions: create<Array<string>>(Type.SetFilterProfessions),
-    setFilterResetValues: create<FilterOptions>(Type.SetFilterResetValues)
+    setFilterResetValues: create<FilterOptions>(Type.SetFilterResetValues),
+    clearActiveFilterValues: create(Type.ClearActiveFilterValues)
 }
