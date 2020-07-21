@@ -1,5 +1,4 @@
 import { actionCreatorFactory } from 'typescript-fsa';
-//import { Results } from '../models';
 
 enum Type {
     ResetResults = 'SET_RESULTS',

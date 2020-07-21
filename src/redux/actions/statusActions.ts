@@ -1,5 +1,4 @@
 import { actionCreatorFactory } from 'typescript-fsa';
-//import { Status } from '../models';
 
 enum Type {
     SetLoading = 'SET_LOADING',

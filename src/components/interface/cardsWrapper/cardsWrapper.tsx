@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
-import { RootState, Gnome, StatusActions, FilterOptions } from '../../../redux';
+import { RootState, Gnome, StatusActions } from '../../../redux';
 import Card from './Card/Card';
 import CardWithDetails from './Card/CardWithDetails';
 
@@ -38,33 +38,16 @@ const CardsWrapper = (props:CardsWrapperProps) => {
     }, [props.arrayOfActive]);
 
     const generateList = () => {
-        let list:any = [];
-
-        /*if(props.arrayOfActive.length === 0) {
-            list = props.population.map(
-                gnome => <Card 
-                            key={gnome.id} 
-                            index={gnome.id}
-                            gnomeName={gnome.name}
-                            gnomeThumbnail={gnome.thumbnail}
-                            selected={props.gnomeSelected}
-                            handleClick={handleClickOnCard}
-                        />
-                );
-        }
-        else {*/
-            list = props.arrayOfActive.map(
-                index => <Card
-                    key={index}
-                    index={props.population[index].id}
-                    gnomeName= {props.population[index].name}
-                    gnomeThumbnail={props.population[index].thumbnail}
-                    selected={props.gnomeSelected}
-                    handleClick={handleClickOnCard}
-                />
-            );
-        //}
-
+        const list:any = props.arrayOfActive.map(
+            index => <Card
+                key={index}
+                index={props.population[index].id}
+                gnomeName= {props.population[index].name}
+                gnomeThumbnail={props.population[index].thumbnail}
+                selected={props.gnomeSelected}
+                handleClick={handleClickOnCard}
+            />
+        );
         setListOfGnomes(list);
     }
 
@@ -84,16 +67,6 @@ const CardsWrapper = (props:CardsWrapperProps) => {
     return (
         <div className={`${classes.cardsWrapper} ${props.gnomeSelected !== -1 && classes.inPreview}`}>
             <div className={classes.innerWrapper}>
-                {/* {props.population.map(
-                    gnome => <Card 
-                        key={gnome.id} 
-                        index={gnome.id}
-                        gnomeName={gnome.name}
-                        gnomeThumbnail={gnome.thumbnail}
-                        selected={props.gnomeSelected}
-                        handleClick={handleClickOnCard}
-                    />
-                )} */}
                 {listOfGnomes}
             </div>
             { props.gnomeSelected !== -1 &&
