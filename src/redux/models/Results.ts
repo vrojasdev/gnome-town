@@ -1,3 +1,4 @@
 export interface Results {
-    active: Array<number>
+    active: Array<number>,
+    initial: Array<number>
 }

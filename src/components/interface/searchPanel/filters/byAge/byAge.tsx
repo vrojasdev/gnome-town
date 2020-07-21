@@ -12,8 +12,7 @@ interface ByAgeProps {
     minAgeFilter: number,
     maxAgeFilter: number,
     clearFilter: boolean,
-    setMinAgeFilter: typeof FilterActions.FilterActions.setFilterMinAge,
-    setMaxAgeFilter: typeof FilterActions.FilterActions.setFilterMaxAge
+    setAgeFilter: typeof FilterActions.FilterActions.setFilterAge
 }
 
 const mapStateToProps = (state:RootState) => {
@@ -24,9 +23,8 @@ const mapStateToProps = (state:RootState) => {
     }
 }
 
-const mapDispatchToProps = (dispatch:Dispatch): Pick<ByAgeProps, 'setMinAgeFilter' | 'setMaxAgeFilter' > => ({
-    setMinAgeFilter: bindActionCreators(FilterActions.FilterActions.setFilterMinAge, dispatch),
-    setMaxAgeFilter: bindActionCreators(FilterActions.FilterActions.setFilterMaxAge, dispatch)
+const mapDispatchToProps = (dispatch:Dispatch): Pick<ByAgeProps, 'setAgeFilter' > => ({
+    setAgeFilter: bindActionCreators(FilterActions.FilterActions.setFilterAge, dispatch)
 });
 
 const ByAge = (props:ByAgeProps) => {
@@ -47,8 +45,7 @@ const ByAge = (props:ByAgeProps) => {
     }
 
     const updateFilters = () => {
-        props.setMinAgeFilter(value.min);
-        props.setMaxAgeFilter(value.max);
+        props.setAgeFilter({ minAge: value.min, maxAge: value.max });
     }
 
     return (

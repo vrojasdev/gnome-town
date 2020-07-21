@@ -15,7 +15,7 @@ interface ByProfessionsProps {
 
 const mapStateToProps = (state:RootState) => {
     return {
-        professions: state.filters.resetValues.professions,
+        professions: state.filters.initialValues.professions,
         clearFilter: state.status.clearFilters
     }
 }
@@ -25,25 +25,26 @@ const mapDispatchToProps = (dispatch:Dispatch): Pick<ByProfessionsProps, 'setPro
 });
 
 const ByProfessions = (props:ByProfessionsProps) => {
-    const [colors, setColors] = useState([...props.professions]);
+    const [professions, setProfessions] = useState([] as any);
+    const [firstLoad, setFirstLoad] = useState(true);
 
     useEffect(() => {
-        setColors([...props.professions]);
+        firstLoad ? setFirstLoad(false) : setProfessions([]); 
         props.handleAfterClearing();
     }, [props.clearFilter]);
 
     const handleChange = (val:any) => {
-        if(colors !== val) {
-            setColors(val);
+        if(professions !== val) {
+            setProfessions(val);
             props.setProfessions(val);
         }
     }
 
     return (
         <div className={classes.byProfessions}>
-            <label htmlFor="professions">Height</label>
+            <label htmlFor="professions">Professions</label>
             <div id="professions" className={classes['professions']}>
-                <CheckboxGroup name="professions" value={colors} onChange={handleChange}>
+                <CheckboxGroup name="professions" value={professions} onChange={handleChange}>
                     {(Checkbox) => (
                         <>
                             {props.professions.map(profession => 

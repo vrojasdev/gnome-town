@@ -2,11 +2,15 @@ import { actionCreatorFactory } from 'typescript-fsa';
 //import { Results } from '../models';
 
 enum Type {
-    SetResults = 'SET_RESULTS'
+    ResetResults = 'SET_RESULTS',
+    SetActiveResults = 'SET_ACTIVE_RESULTS',
+    SetInitialResults = 'SET_INITIAL_RESULTS'
 }
 
 const create = actionCreatorFactory('RESULTS');
 
 export const ResultsActions = {
-    setResults: create<Array<number>>(Type.SetResults)
+    resetResults: create<Array<number>>(Type.ResetResults),
+    setActiveResults: create<Array<number>>(Type.SetActiveResults),
+    setInitialResults: create<Array<number>>(Type.SetInitialResults)
 }

@@ -12,8 +12,7 @@ interface ByWeightProps {
     minWeightFilter: number,
     maxWeightFilter: number,
     clearFilter: boolean,
-    setMinWeightFilter: typeof FilterActions.FilterActions.setFilterMinWeight,
-    setMaxWeightFilter: typeof FilterActions.FilterActions.setFilterMaxWeight
+    setWeightFilter: typeof FilterActions.FilterActions.setFilterWeight
 }
 
 const mapStateToProps = (state:RootState) => {
@@ -24,9 +23,8 @@ const mapStateToProps = (state:RootState) => {
     }
 }
 
-const mapDispatchToProps = (dispatch:Dispatch): Pick<ByWeightProps, 'setMinWeightFilter' | 'setMaxWeightFilter' > => ({
-    setMinWeightFilter: bindActionCreators(FilterActions.FilterActions.setFilterMinWeight, dispatch),
-    setMaxWeightFilter: bindActionCreators(FilterActions.FilterActions.setFilterMaxWeight, dispatch)
+const mapDispatchToProps = (dispatch:Dispatch): Pick<ByWeightProps, 'setWeightFilter' > => ({
+    setWeightFilter: bindActionCreators(FilterActions.FilterActions.setFilterWeight, dispatch)
 });
 
 const ByWeight = (props:ByWeightProps) => {
@@ -45,8 +43,7 @@ const ByWeight = (props:ByWeightProps) => {
     }
 
     const updateFilters = () => {
-        props.setMinWeightFilter(value.min);
-        props.setMaxWeightFilter(value.max);
+        props.setWeightFilter({ minWeight:value.min, maxWeight:value.max });
     }
 
     return (

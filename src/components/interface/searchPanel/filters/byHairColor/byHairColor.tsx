@@ -15,7 +15,7 @@ interface ByHairColorProps {
 
 const mapStateToProps = (state:RootState) => {
     return {
-        hairColors: state.filters.resetValues.hairColor,
+        hairColors: state.filters.initialValues.hairColor,
         clearFilter: state.status.clearFilters
     }
 }
@@ -25,10 +25,11 @@ const mapDispatchToProps = (dispatch:Dispatch): Pick<ByHairColorProps, 'setHairC
 });
 
 const ByHairColor = (props:ByHairColorProps) => {
-    const [colors, setColors] = useState([...props.hairColors]);
+    const [colors, setColors] = useState([] as any);
+    const [firstLoad, setFirstLoad] = useState(true);
 
     useEffect(() => {
-        setColors([...props.hairColors]);
+        firstLoad ? setFirstLoad(false) : setColors([]);        
         props.handleAfterClearing();
     }, [props.clearFilter]);
 
@@ -41,7 +42,7 @@ const ByHairColor = (props:ByHairColorProps) => {
 
     return (
         <div className={classes.byHairColor}>
-            <label htmlFor="hair-colors">Height</label>
+            <label htmlFor="hair-colors">Hair Color</label>
             <div id="hair-colors" className={classes['hair-colors']}>
                 <CheckboxGroup name="colors" value={colors} onChange={handleChange}>
                     {(Checkbox) => (

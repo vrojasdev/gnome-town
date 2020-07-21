@@ -10,7 +10,7 @@ import classes from './topBar.module.scss';
 interface TopBarProps {
     townName: string,
     selected: number,
-    setFiltering: typeof StatusActions.setFiltering,
+    setPanelVisible: typeof StatusActions.setPanelVisible,
     setSelected: typeof StatusActions.setSelected
 }
 
@@ -21,14 +21,14 @@ const mapStateToProps = (state:RootState) => {
     }
 }
 
-const mapDispatchToProps = (dispatch:Dispatch): Pick<TopBarProps, 'setFiltering' | 'setSelected' > => ({
-    setFiltering: bindActionCreators(StatusActions.setFiltering, dispatch),
+const mapDispatchToProps = (dispatch:Dispatch): Pick<TopBarProps, 'setPanelVisible' | 'setSelected' > => ({
+    setPanelVisible: bindActionCreators(StatusActions.setPanelVisible, dispatch),
     setSelected: bindActionCreators(StatusActions.setSelected, dispatch)
 });
 
 const TopBar = (props:TopBarProps) => {
     const handleStartSearch = () => {
-        props.setFiltering(true);
+        props.setPanelVisible(true);
         if(props.selected !== -1) {
             props.setSelected(-1);
         }

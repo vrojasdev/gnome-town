@@ -7,13 +7,13 @@ import closeBtn from '../../../../assets/img/close.svg';
 import classes from './top.module.scss';
 
 interface TopProps {
-    setFiltering: typeof StatusActions.StatusActions.setFiltering,
+    setPanelVisible: typeof StatusActions.StatusActions.setPanelVisible,
     clearing: typeof StatusActions.StatusActions.setClearFilters,
     clearFilters: typeof FilterActions.FilterActions.clearActiveFilterValues
 }
 
-const mapDispatchToProps = (dispatch:Dispatch): Pick<TopProps, 'setFiltering' | 'clearFilters' | 'clearing' > => ({
-    setFiltering: bindActionCreators(StatusActions.StatusActions.setFiltering, dispatch),
+const mapDispatchToProps = (dispatch:Dispatch): Pick<TopProps, 'setPanelVisible' | 'clearFilters' | 'clearing' > => ({
+    setPanelVisible: bindActionCreators(StatusActions.StatusActions.setPanelVisible, dispatch),
     clearFilters: bindActionCreators(FilterActions.FilterActions.clearActiveFilterValues, dispatch),
     clearing: bindActionCreators(StatusActions.StatusActions.setClearFilters, dispatch)
 });
@@ -29,7 +29,7 @@ const Top = (props:TopProps) => {
         <div className={classes.top}>
             <div 
                 className={classes.closeBtn}
-                onClick={() => props.setFiltering(false)}
+                onClick={() => props.setPanelVisible(false)}
             >
                 <img src={closeBtn} alt="close" />
             </div>

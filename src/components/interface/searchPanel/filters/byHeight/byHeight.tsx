@@ -12,8 +12,7 @@ interface ByHeightProps {
     minHeightFilter: number,
     maxHeightFilter: number,
     clearFilter: boolean,
-    setMinHeightFilter: typeof FilterActions.FilterActions.setFilterMinHeight,
-    setMaxHeightFilter: typeof FilterActions.FilterActions.setFilterMaxHeight
+    setHeightFilter: typeof FilterActions.FilterActions.setFilterHeight
 }
 
 const mapStateToProps = (state:RootState) => {
@@ -24,9 +23,8 @@ const mapStateToProps = (state:RootState) => {
     }
 }
 
-const mapDispatchToProps = (dispatch:Dispatch): Pick<ByHeightProps, 'setMinHeightFilter' | 'setMaxHeightFilter' > => ({
-    setMinHeightFilter: bindActionCreators(FilterActions.FilterActions.setFilterMinHeight, dispatch),
-    setMaxHeightFilter: bindActionCreators(FilterActions.FilterActions.setFilterMaxHeight, dispatch)
+const mapDispatchToProps = (dispatch:Dispatch): Pick<ByHeightProps, 'setHeightFilter' > => ({
+    setHeightFilter: bindActionCreators(FilterActions.FilterActions.setFilterHeight, dispatch)
 });
 
 const ByHeight = (props:ByHeightProps) => {
@@ -45,8 +43,7 @@ const ByHeight = (props:ByHeightProps) => {
     }
 
     const updateFilters = () => {
-        props.setMinHeightFilter(value.min);
-        props.setMaxHeightFilter(value.max);
+        props.setHeightFilter({ minHeight:value.min, maxHeight:value.max});
     }
 
     return (

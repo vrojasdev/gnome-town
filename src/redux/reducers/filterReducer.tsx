@@ -16,6 +16,7 @@ const initialFilterValues:FilterOptions = {
 
 const initialFilter:Filters = {
     active: { ...initialFilterValues },
+    initialValues: { ...initialFilterValues },
     resetValues: { ...initialFilterValues }
 }
 
@@ -25,34 +26,22 @@ export const filterReducer = reducerWithInitialState(initialFilter)
         temp.active.name = name;
         return { ...temp }
     })
-    .case(FilterActions.FilterActions.setFilterMinAge, (state, minAge) => {
+    .case(FilterActions.FilterActions.setFilterAge, (state, age) => {
         let temp = { ...state };
-        temp.active.minAge = minAge;
+        temp.active.minAge = age.minAge;
+        temp.active.maxAge = age.maxAge;
         return { ...temp }
     })
-    .case(FilterActions.FilterActions.setFilterMaxAge, (state, maxAge) => {
+    .case(FilterActions.FilterActions.setFilterWeight, (state, weight) => {
         let temp = { ...state };
-        temp.active.maxAge = maxAge;
+        temp.active.minWeight = weight.minWeight;
+        temp.active.maxWeight = weight.maxWeight;
         return { ...temp }
     })
-    .case(FilterActions.FilterActions.setFilterMinWeight, (state, minWeight) => {
+    .case(FilterActions.FilterActions.setFilterHeight, (state, height) => {
         let temp = { ...state };
-        temp.active.minWeight = minWeight;
-        return { ...temp }
-    })
-    .case(FilterActions.FilterActions.setFilterMaxWeight, (state, maxWeight) => {
-        let temp = { ...state };
-        temp.active.maxWeight = maxWeight;
-        return { ...temp }
-    })
-    .case(FilterActions.FilterActions.setFilterMinHeight, (state, minHeight) => {
-        let temp = { ...state };
-        temp.active.minHeight = minHeight;
-        return { ...temp }
-    })
-    .case(FilterActions.FilterActions.setFilterMaxHeight, (state, maxHeight) => {
-        let temp = { ...state };
-        temp.active.maxHeight = maxHeight;
+        temp.active.minHeight = height.minHeight;
+        temp.active.maxHeight = height.maxHeight;
         return { ...temp }
     })
     .case(FilterActions.FilterActions.setFilterHairColor, (state, hairColor) => {
@@ -65,9 +54,10 @@ export const filterReducer = reducerWithInitialState(initialFilter)
         temp.active.professions = [...professions];
         return { ...temp }
     })
-    .case(FilterActions.FilterActions.setFilterResetValues, (state,  resetValues ) => {
+    .case(FilterActions.FilterActions.setFilterResetValues, (state,  allValues ) => {
         let temp = {...state};
-        temp.resetValues = { ...resetValues };
+        temp.initialValues = { ...allValues };
+        temp.resetValues = { ...allValues, hairColor: [], professions: [] };
         return { ...temp }
     })
     .case(FilterActions.FilterActions.clearActiveFilterValues, (state) => {

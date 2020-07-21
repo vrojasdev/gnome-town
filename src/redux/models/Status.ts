@@ -1,6 +1,6 @@
 export interface Status {
     loading: boolean,
-    filtering: boolean,
+    panelVisible: boolean,
     selected: number,
     clearFilters: boolean
 }

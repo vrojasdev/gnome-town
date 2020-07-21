@@ -8,12 +8,6 @@ export const ProcessArrayInfo = (arrayData:Array<Gnome>) => {
     const hairData = arrayData.map(gnome => gnome.hair_color);
     const professionsData = arrayData.map(gnome => gnome.professions);
 
-    //console.log(ageData);
-    //console.log(weightData);
-    //console.log(heightData);
-    //console.log(hairData);
-    //console.log(professionsData);
-
     // process the info for the Age filter
     const minAge = loadshArray.min(ageData);
     const maxAge = loadshArray.max(ageData);

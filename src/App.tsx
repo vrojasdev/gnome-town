@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
-import { RootState, TownActions, StatusActions, FilterActions } from './redux';
+import { RootState, TownActions, StatusActions, FilterActions, ResultsActions } from './redux';
 import Welcome from './components/welcome/welcome';
 import Interface from './components/interface/interface';
 import ErrorMsg from './components/errorMsg';
 import { ProcessArrayInfo } from './helpers/filters';
+import { generateActiveIndices } from './helpers/results';
 
 import classes from './App.module.scss';
 
@@ -15,7 +16,8 @@ interface AppProps {
   setTownInfo: typeof TownActions.TownActions.setTownInfo,
   setLoading: typeof StatusActions.StatusActions.setLoading,
   setFilterReset: typeof FilterActions.FilterActions.setFilterResetValues,
-  setFilterInitial: typeof FilterActions.FilterActions.clearActiveFilterValues
+  setFilterInitial: typeof FilterActions.FilterActions.clearActiveFilterValues,
+  setInitialResults: typeof ResultsActions.ResultsActions.setInitialResults
 }
 
 const mapStateToProps = (state:RootState) => {
@@ -25,11 +27,12 @@ const mapStateToProps = (state:RootState) => {
   }
 }
 
-const mapDispatchToProps = (dispatch:Dispatch): Pick<AppProps, 'setTownInfo' | 'setLoading' | 'setFilterReset' | 'setFilterInitial' > => ({
+const mapDispatchToProps = (dispatch:Dispatch): Pick<AppProps, 'setTownInfo' | 'setLoading' | 'setFilterReset' | 'setFilterInitial' | 'setInitialResults' > => ({
   setTownInfo: bindActionCreators(TownActions.TownActions.setTownInfo, dispatch),
   setLoading: bindActionCreators(StatusActions.StatusActions.setLoading, dispatch),
   setFilterReset: bindActionCreators(FilterActions.FilterActions.setFilterResetValues, dispatch),
-  setFilterInitial: bindActionCreators(FilterActions.FilterActions.clearActiveFilterValues, dispatch)
+  setFilterInitial: bindActionCreators(FilterActions.FilterActions.clearActiveFilterValues, dispatch),
+  setInitialResults: bindActionCreators(ResultsActions.ResultsActions.setInitialResults, dispatch)
 });
 
 const App = (props:AppProps) => {
@@ -53,22 +56,25 @@ const App = (props:AppProps) => {
 
       const name = Object.keys(data)[0];
       const population = data[`${name}`];
+      const activeArray = generateActiveIndices(population);
 
       // Call to HELPER function for getting the initial values for the filters
       const newFiltersData = ProcessArrayInfo(population);
       props.setFilterReset(newFiltersData);
       props.setFilterInitial();
+      props.setInitialResults(activeArray);
 
-      // stores the Name of the town and the whole population in the Redux Store
+      // set the Name of the town and the whole population in the Redux Store
       props.setTownInfo({
         name: name,
         population: population
       });
 
       setTimeout(() => {
-        //setDataLoaded(true);
+        // we wait 2.5 seconds to allow enought time for the loading
+        // and the animation of the welcome page
         props.setLoading(false);
-      }, 2500);
+      }, 2000);
     }
     catch (e){
       setErrorLoading(true);

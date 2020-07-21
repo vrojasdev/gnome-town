@@ -4,7 +4,7 @@ import { reducerWithInitialState } from 'typescript-fsa-reducers';
 
 const initialStatus:Status = {
     loading: true,
-    filtering: false,
+    panelVisible: false,
     selected: -1,
     clearFilters: false
 }
@@ -15,9 +15,9 @@ export const statusReducer = reducerWithInitialState(initialStatus)
         temp.loading = loading;
         return { ...temp }
     })
-    .case(StatusActions.StatusActions.setFiltering, (state, filtering) => {
+    .case(StatusActions.StatusActions.setPanelVisible, (state, filtering) => {
         let temp = { ...state };
-        temp.filtering = filtering;
+        temp.panelVisible = filtering;
         return { ...temp }
     })
     .case(StatusActions.StatusActions.setSelected, (state, selected) => {
