@@ -12,10 +12,14 @@
     -ms-transition: right .5s ease;
     -o-transition: right .5s ease;
     text-align: left;
-    padding: 1em;
+    //padding: 1em;
     z-index: 10;
 
     &.visible {
         right: 0;
+    }
+
+    .innerWrapper {
+        padding: 1em 2em;
     }
 }

@@ -9,6 +9,7 @@ import ByWeight from './filters/byWeight/byWeight';
 import ByHeight from './filters/byHeight/byHeight';
 import ByHairColor from './filters/byHairColor/byHairColor';
 import ByProfessions from './filters/byProfessions/byProfessions';
+import ScrollArea from 'react-scrollbar';
 
 import classes from './searchPanel.module.scss';
 
@@ -38,13 +39,17 @@ const SearchPanel = (props:SearchPanelProps) => {
     
     return (
         <div className={`${classes.searchPanel} ${props.filtering && classes.visible} `}>
-            <Top />
-            <ByName />
-            <ByAge handleAfterClearing={handleAfterClearingFilters} />
-            <ByWeight handleAfterClearing={handleAfterClearingFilters} />
-            <ByHeight handleAfterClearing={handleAfterClearingFilters} />
-            <ByHairColor handleAfterClearing={handleAfterClearingFilters} />
-            <ByProfessions handleAfterClearing={handleAfterClearingFilters} />
+            <ScrollArea horizontal={false} style={{height:'100vh', width:'100%'}} stopScrollPropagation={true}>
+                <div className={classes.innerWrapper}>
+                    <Top />
+                    <ByName />
+                    <ByAge handleAfterClearing={handleAfterClearingFilters} />
+                    <ByWeight handleAfterClearing={handleAfterClearingFilters} />
+                    <ByHeight handleAfterClearing={handleAfterClearingFilters} />
+                    <ByHairColor handleAfterClearing={handleAfterClearingFilters} />
+                    <ByProfessions handleAfterClearing={handleAfterClearingFilters} />
+                </div>
+            </ScrollArea>
         </div>
     )
 }
