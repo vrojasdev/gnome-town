@@ -37,6 +37,7 @@ const CardsWrapper = (props:CardsWrapperProps) => {
         generateList();
     }, [props.arrayOfActive]);
 
+    // function that modified the population displayed depending on the results if any filters are applied
     const generateList = () => {
         const list:any = props.arrayOfActive.map(
             index => <Card
@@ -51,6 +52,7 @@ const CardsWrapper = (props:CardsWrapperProps) => {
         setListOfGnomes(list);
     }
 
+    // function that passes the index of the card that has been clicked by the user
     const handleClickOnCard = (index:number) => {
         props.setSelected(index);
         if(props.panelVisible) {
@@ -58,6 +60,7 @@ const CardsWrapper = (props:CardsWrapperProps) => {
         }
     }
 
+    // function that returns the user to the list of all population
     const backToList = (e:any) => {
         if(e.currentTarget === e.target) {
             props.setSelected(-1);

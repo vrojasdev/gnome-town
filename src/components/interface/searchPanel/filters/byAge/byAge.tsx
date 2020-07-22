@@ -45,6 +45,7 @@ const ByAge = (props:ByAgeProps) => {
     }
 
     const updateFilters = () => {
+        // set the new values for the Age filter
         props.setAgeFilter({ minAge: value.min, maxAge: value.max });
     }
 

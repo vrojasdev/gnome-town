@@ -29,6 +29,7 @@ const ByName = (props:ByNameProps) => {
     }, [props.nameFilter]);
 
     const handleApplyFilter = () => { 
+        // set the new values for the Name filter
         props.setFilterName(name);
         setFilterApplied(true);
     }

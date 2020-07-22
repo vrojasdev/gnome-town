@@ -28,6 +28,7 @@ const mapDispatchToProps = (dispatch:Dispatch): Pick<TopBarProps, 'setPanelVisib
 
 const TopBar = (props:TopBarProps) => {
     const handleStartSearch = () => {
+        // indicates that the Search Panel needs to be shown
         props.setPanelVisible(true);
         if(props.selected !== -1) {
             props.setSelected(-1);

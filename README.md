@@ -24,16 +24,16 @@ The application contains unit test for some components, these tests can be found
 In the project directory, you can run:
 ## Available Scripts
 
-### npm install or yarn install : 
+### npm install or yarn install
 for installing all the node_modules needed
 
-### npm start or yarn start : 
+### npm start or yarn start
 for running the application using localhost
 
-### npm test or yarn test : 
+### npm test or yarn test
 for running the tests included
 
-### npm build or yarn build : 
+### npm build or yarn build
 for generating a production version of the application for best performance.
 
 

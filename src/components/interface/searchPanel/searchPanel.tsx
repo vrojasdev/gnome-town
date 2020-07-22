@@ -52,6 +52,8 @@ const mapDispatchToProps = (dispatch:Dispatch): Pick<SearchPanelProps, 'setClear
 
 const SearchPanel = (props:SearchPanelProps) => {
     useEffect(() => {
+        // every time we detect a change in any filter value, we call the helper function "generateNewActiveArray"
+        // to apply the filters and generate the new values to be displayed in the interface
         const newResults = generateNewActiveArray(props.population, props.activeFilters, props.resetFilters, props.results);
         props.setActiveResults(newResults);
     }, [props.name,
@@ -66,6 +68,7 @@ const SearchPanel = (props:SearchPanelProps) => {
     );
 
     const handleAfterClearingFilters = () => {
+        // set all filters back to the default values
         if(props.clearing) {
             props.setClearing(false);
         }

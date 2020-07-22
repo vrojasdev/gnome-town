@@ -43,6 +43,7 @@ const ByHeight = (props:ByHeightProps) => {
     }
 
     const updateFilters = () => {
+        // set the new values for the Height filter
         props.setHeightFilter({ minHeight:value.min, maxHeight:value.max});
     }
 

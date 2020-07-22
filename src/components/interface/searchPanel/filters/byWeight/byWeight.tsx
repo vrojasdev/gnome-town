@@ -43,6 +43,7 @@ const ByWeight = (props:ByWeightProps) => {
     }
 
     const updateFilters = () => {
+        // set the new values for the Weight filter
         props.setWeightFilter({ minWeight:value.min, maxWeight:value.max });
     }
 

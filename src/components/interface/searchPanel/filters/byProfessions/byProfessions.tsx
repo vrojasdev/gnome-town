@@ -34,6 +34,7 @@ const ByProfessions = (props:ByProfessionsProps) => {
     }, [props.clearFilter]);
 
     const handleChange = (val:any) => {
+        // set the new values for the Professions filter
         if(professions !== val) {
             setProfessions(val);
             props.setProfessions(val);

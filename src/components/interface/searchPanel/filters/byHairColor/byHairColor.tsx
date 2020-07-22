@@ -34,6 +34,7 @@ const ByHairColor = (props:ByHairColorProps) => {
     }, [props.clearFilter]);
 
     const handleChange = (val:any) => {
+        // set the new values for the HairColor filter
         if(colors !== val) {
             setColors(val);
             props.setHairColors(val);
