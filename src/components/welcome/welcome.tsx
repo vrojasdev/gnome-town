@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './welcome.module.scss';
 
-interface WelcomeProps {
+export interface WelcomeProps {
     townName: string
 }
 
