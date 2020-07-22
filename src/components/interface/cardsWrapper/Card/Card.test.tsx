@@ -1,16 +1,16 @@
 import React from 'react';
 import Card, { CardProps } from './Card';
 import { render } from '@testing-library/react';
+    
+const initProps:CardProps = {
+    index: 0,
+    gnomeName: 'Gnome1',
+    gnomeThumbnail: 'http://localhost/img_src.png',
+    selected: 0,
+    handleClick: () => {}
+}
 
 describe('Card Component', () => {
-    
-    const initProps:CardProps = {
-        index: 0,
-        gnomeName: 'Gnome1',
-        gnomeThumbnail: 'http://localhost/img_src.png',
-        selected: 0,
-        handleClick: () => {}
-    }
 
     test('it renders the component', () => {
         const { container } = render(<Card {...initProps} />);

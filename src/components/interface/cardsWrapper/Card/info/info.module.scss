@@ -1,3 +1,11 @@
 .info {
+    width: 100%;
     min-height: 180px;
+}
+
+@media (max-height: 599px) and (min-width:400px) {
+    .info {
+        float: left;
+        width: 50%;
+    }
 }

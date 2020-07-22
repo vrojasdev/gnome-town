@@ -3,24 +3,24 @@ import CardWithDetails, { CardWithDetailsProps } from './CardWithDetails';
 import { render } from '@testing-library/react';
 import { Gnome } from '../../../../redux';
 
-describe('CardWithDetails Component', () => {
+const gnome:Gnome = {
+    id: 0,
+    name: 'Gnome',
+    thumbnail: 'http://localhost/img_src.png',
+    age: 100,
+    weight: 200,
+    height: 300,
+    hair_color: 'red',
+    professions: [],
+    friends: []
+}
 
-    const gnome:Gnome = {
-        id: 0,
-        name: 'Gnome',
-        thumbnail: 'http://localhost/img_src.png',
-        age: 100,
-        weight: 200,
-        height: 300,
-        hair_color: 'red',
-        professions: [],
-        friends: []
-    }
-    
-    const initProps:CardWithDetailsProps = {
-        index: 0,
-        info: gnome
-    }
+const initProps:CardWithDetailsProps = {
+    index: 0,
+    info: gnome
+}
+
+describe('CardWithDetails Component', () => {
 
     test('it renders the component', () => {
         const { container } = render(<CardWithDetails {...initProps} />);

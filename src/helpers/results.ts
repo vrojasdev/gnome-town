@@ -1,18 +1,17 @@
 import { Gnome, FilterOptions } from "../redux";
 var lodash = require('lodash');
 
-/*
-    function that generates an array only containing the id's of the population
-*/
+
+// function that generates an array only containing the id's of the population
 export const generateActiveIndices = (population:Array<Gnome>) => {
     return population.map(gnome => gnome.id);
 }
 
 
-/*
+/*  ----------------------------------------------------------------------------------------
     function that process the filters applied and returns the array of id's corresponding 
     to the individuals that match the filters indicated by the user
-*/
+    ----------------------------------------------------------------------------------------  */
 export const generateNewActiveArray = (population:Array<Gnome>, activeFilters:FilterOptions, resetFilters:FilterOptions, initialResults:Array<number>) => {
     let newResults:Array<number> = [...initialResults];
 

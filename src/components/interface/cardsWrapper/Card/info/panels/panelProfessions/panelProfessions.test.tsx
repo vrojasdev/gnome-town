@@ -5,7 +5,7 @@ import { render } from '@testing-library/react';
 const noProfessions:Array<string> = [];
 const someProfessions:Array<string> = ['Profession 1', 'Profession 2', 'Profession 3', 'Profession 4', 'Profession 5'];
 
-describe('PanelFriends Component', () => {
+describe('PanelProfessions Component', () => {
 
     describe('NO professions', () => {
         test("it should render an empty div with class 'professions'", () => {

@@ -15,9 +15,12 @@ const initProps:InfoProps = {
     friends: []
 }
 
-test('it renders the component, with the Tabs and Panels components', () => {
-    const { container } = render(<Info {...initProps}  />);
-    expect(container.querySelector('.info')).not.toBe(null);
-    expect(container.querySelector('.tabs')).not.toBe(null);
-    expect(container.querySelector('.panels')).not.toBe(null);
-});
+describe('Info Component', () => {
+    test('it renders the component, with the Tabs and Panels components', () => {
+        const { container } = render(<Info {...initProps}  />);
+        
+        expect(container.querySelector('.info')).not.toBe(null);
+        expect(container.querySelector('.tabs')).not.toBe(null);
+        expect(container.querySelector('.panels')).not.toBe(null);
+    });    
+})

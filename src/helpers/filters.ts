@@ -2,6 +2,7 @@ import { Gnome } from '../redux/models';
 var loadshArray = require('lodash');
 
 export const ProcessArrayInfo = (arrayData:Array<Gnome>) => {
+    // we create arrays storing only the specific values for some properties
     const ageData = arrayData.map(gnome => gnome.age);
     const weightData = arrayData.map(gnome => gnome.weight);
     const heightData = arrayData.map(gnome => gnome.height);
@@ -26,6 +27,7 @@ export const ProcessArrayInfo = (arrayData:Array<Gnome>) => {
     // process the info for the Professions filter
     const newProfessionsValues = loadshArray.union(...professionsData);
 
+    // this will be the object returned by the function
     const filtersData = {
         name: '',
         minAge: minAge,

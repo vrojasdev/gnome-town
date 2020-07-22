@@ -8,8 +8,40 @@
 
     label {
         display: inline-block;
-        width: 30%;
+        width: 100%;
         padding: 1em;
-        font-size: .8em;
+        font-size: .6em;
+    }
+}
+
+@media (min-width: 380px) {
+    .professions {
+        label {
+            width: 50%;
+        }
+    }
+}
+
+@media (min-width: 500px) {
+    .professions {
+        label {
+            font-size: .7em;
+        }
+    }
+}
+
+@media (min-width: 650px) {
+    .professions {
+        label {
+            width: 30%;
+        }
+    }
+}
+
+@media (min-width: 800px) {
+    .professions {
+        label {
+            font-size: .8em;
+        }
     }
 }

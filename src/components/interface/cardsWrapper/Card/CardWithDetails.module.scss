@@ -18,8 +18,8 @@
   .cardWithDetails {
     background-color: #484848;
     width: 100%;
-    max-width: 400px;
-    padding: 1em .5em;
+    max-width: 800px;
+    padding: 0 .5em;
     border-radius: 1.2em;
     -webkit-border-radius: 1.2em;
     -moz-border-radius: 1.2em;
@@ -27,4 +27,12 @@
     -o-border-radius: 1.2em;
     animation: appear .5s ease;
     -webkit-animation: appear .5s ease;
+}
+
+
+@media (min-height: 599px) {
+    .cardWithDetails {
+        max-width: 400px;
+        padding: 1em .5em;
+    }
 }
