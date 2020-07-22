@@ -4,7 +4,7 @@ import Thumbnail from './thumbnail/thumbnail';
 
 import classes from './Card.module.scss';
 
-interface CardProps {
+export interface CardProps {
     index: number,
     gnomeName: string,
     gnomeThumbnail: string,

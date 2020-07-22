@@ -2,7 +2,7 @@ import { Town } from '../models';
 import { TownActions } from '../actions';
 import { reducerWithInitialState } from 'typescript-fsa-reducers';
 
-const initialTown:Town = {
+export const initialTown:Town = {
     name: '',
     population: []
 }

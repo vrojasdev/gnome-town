@@ -14,7 +14,7 @@ const initialFilterValues:FilterOptions = {
     professions: []
 }
 
-const initialFilter:Filters = {
+export const initialFilter:Filters = {
     active: { ...initialFilterValues },
     initialValues: { ...initialFilterValues },
     resetValues: { ...initialFilterValues }

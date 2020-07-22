@@ -2,7 +2,7 @@ import { Results } from '../models';
 import { ResultsActions } from '../actions';
 import { reducerWithInitialState } from 'typescript-fsa-reducers';
 
-const initialResults:Results = {
+export const initialResults:Results = {
     active: [],
     initial: []
 }

@@ -2,7 +2,7 @@ import { Status } from '../models';
 import { StatusActions } from '../actions';
 import { reducerWithInitialState } from 'typescript-fsa-reducers';
 
-const initialStatus:Status = {
+export const initialStatus:Status = {
     loading: true,
     panelVisible: false,
     selected: -1,

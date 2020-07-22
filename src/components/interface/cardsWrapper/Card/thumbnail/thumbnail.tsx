@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './thumbnail.module.scss';
 
-interface ThumbnailProps {
+export interface ThumbnailProps {
     thumbnail: string,
     inPreview: boolean
 }

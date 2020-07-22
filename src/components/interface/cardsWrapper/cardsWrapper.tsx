@@ -7,7 +7,7 @@ import CardWithDetails from './Card/CardWithDetails';
 
 import classes from './cardsWrapper.module.scss';
 
-interface CardsWrapperProps {
+export interface CardsWrapperProps {
     population: Array<Gnome>,
     arrayOfActive: Array<number>,
     panelVisible: boolean,

@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './name.module.scss';
 
-interface NameProps {
+export interface NameProps {
     name: string,
     inPreview: boolean
 }

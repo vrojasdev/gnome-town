@@ -6,7 +6,7 @@ import Info from './info/info';
 
 import classes from './CardWithDetails.module.scss';
 
-interface CardWithDetailsProps {
+export interface CardWithDetailsProps {
     index: number,
     info: Gnome
 }
