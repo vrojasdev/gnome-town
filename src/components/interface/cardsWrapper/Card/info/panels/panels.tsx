@@ -6,7 +6,7 @@ import PanelFriends from './panelFriends/panelFriends';
 
 import classes from './panels.module.scss';
 
-interface PanelsProps extends InfoProps {
+export interface PanelsProps extends InfoProps {
     active:number
 }
 
