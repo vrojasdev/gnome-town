@@ -38,19 +38,18 @@
     }
 }
 
-@media (min-height: 700px) {
+@media (min-height: 700px) and (min-width:460px) {
     .topBar {
         .townName {
             font-size: 2em;
         }
-
-    }
-}
-
-@media (min-height: 700px) and (min-width: 600px) {
-    .topBar {
         .search {
             padding: 2em;
         }
     }
 }
+
+// @media (min-height: 700px) and (min-width: 600px) {
+//     .topBar {
+//     }
+// }
