@@ -1,8 +1,8 @@
 import React from 'react';
-import Name from './name/name';
-import Thumbnail from './thumbnail/thumbnail';
+import Name from '../elements/name/name';
+import Thumbnail from '../elements/thumbnail/thumbnail';
 
-import classes from './Card.module.scss';
+import classes from './CardPreview.module.scss';
 
 export interface CardProps {
     index: number,

@@ -1,8 +1,8 @@
 import React from 'react';
-import { Gnome } from '../../../../redux';
-import Name from './name/name';
-import Thumbnail from './thumbnail/thumbnail';
-import Info from './info/info';
+import { Gnome } from '../../../../../redux';
+import Name from '../elements/name/name';
+import Thumbnail from '../elements/thumbnail/thumbnail';
+import Info from '../elements/info/info';
 
 import classes from './CardWithDetails.module.scss';
 

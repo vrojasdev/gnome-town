@@ -71,7 +71,7 @@ const App = (props:AppProps) => {
       });
 
       setTimeout(() => {
-        // we wait 2.5 seconds to allow enought time for the loading
+        // we wait 2 seconds to allow enought time for the loading
         // and the animation of the welcome page
         props.setLoading(false);
       }, 2000);

@@ -91,7 +91,8 @@ export const generateNewActiveArray = (population:Array<Gnome>, activeFilters:Fi
         
         // if After all filters we have population, then we get the ids of the population left
         // otherwise we return an empty array with no population
-        (tempPopulation.length > 0) ? newResults = tempPopulation.map(g => g.id) : newResults = [];
+        //(tempPopulation.length > 0) ? newResults = tempPopulation.map(g => g.id) : newResults = [];
+        (tempPopulation.length > 0) ? newResults = generateActiveIndices(tempPopulation) : newResults = [];
     }
 
     return newResults;

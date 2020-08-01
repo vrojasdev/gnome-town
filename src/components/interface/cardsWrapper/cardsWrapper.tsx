@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 import { RootState, Gnome, StatusActions } from '../../../redux';
-import Card from './Card/Card';
-import CardWithDetails from './Card/CardWithDetails';
+import Card from './Cards/CardPreview/CardPreview';
+import CardWithDetails from './Cards/CardWithDetails/CardWithDetails';
 
 import classes from './cardsWrapper.module.scss';
 
@@ -37,7 +37,7 @@ const CardsWrapper = (props:CardsWrapperProps) => {
         generateList();
     }, [props.arrayOfActive]);
 
-    // function that modified the population displayed depending on the results if any filters are applied
+    // function that modifies the population displayed depending on the results in case that filters are applied
     const generateList = () => {
         const list:any = props.arrayOfActive.map(
             index => <Card
@@ -78,7 +78,6 @@ const CardsWrapper = (props:CardsWrapperProps) => {
                     onClick={backToList}
                 >
                     <CardWithDetails
-                        key={props.population[props.gnomeSelected].hair_color}
                         index={props.population[props.gnomeSelected].id}
                         info={props.population[props.gnomeSelected]}
                     />

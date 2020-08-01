@@ -5,7 +5,7 @@ import { actionCreatorFactory } from 'typescript-fsa';
     - SetLoading -> indicates if the application is loading the data from the API
     - SetPanelVisible -> indicates if the Search Panel (filters) is visible
     - SetSelected -> indicates if the user has clicked in one Gnome to see the details
-    - setClearFilters -> indicates that the user has click the button "Clear Filters"
+    - setClearFilters -> indicates that the user has clicked the button "Clear Filters"
 */
 
 enum Type {

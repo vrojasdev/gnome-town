@@ -1,7 +1,7 @@
 import React from 'react';
 import CardWithDetails, { CardWithDetailsProps } from './CardWithDetails';
 import { render } from '@testing-library/react';
-import { Gnome } from '../../../../redux';
+import { Gnome } from '../../../../../redux';
 
 const gnome:Gnome = {
     id: 0,
