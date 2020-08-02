@@ -47,11 +47,9 @@ const App = (props:AppProps) => {
   
   const getTownData = async () => {
     const url = "https://raw.githubusercontent.com/rrafols/mobile_test/master/data.json";
-    const headers = { 
-      'Content-Type':'application/x-www-form-urlencoded'
-    }
+    
     try {
-      const response = await fetch(url, { mode:'cors', headers: headers } );
+      const response = await fetch(url, { mode:'cors' } );
       const data = await response.json();
 
       const name = Object.keys(data)[0];
