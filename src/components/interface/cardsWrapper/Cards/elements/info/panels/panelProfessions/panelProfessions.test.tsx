@@ -8,10 +8,11 @@ const someProfessions:Array<string> = ['Profession 1', 'Profession 2', 'Professi
 describe('PanelProfessions Component', () => {
 
     describe('NO professions', () => {
-        test("it should render an empty div with class 'professions'", () => {
+        test("it should render a div with class 'professions' with an image inside", () => {
             const { container } = render(<PanelProfessions professions={noProfessions} />);
-            expect(container.querySelector('.professions').children.length).toBe(0);
+            expect(container.querySelector('.professions')).not.toBe(null);
             expect(container.querySelector('.row')).toBe(null);
+            expect(container.querySelector('.professions img')).not.toBe(null);
         })
     });
 
@@ -22,8 +23,9 @@ describe('PanelProfessions Component', () => {
             component = container;
         });
 
-        test("with 5 professions it renders 3 rows of the data", () => {
+        test("with 5 professions it renders 5 rows of the data", () => {
             expect(component.querySelector('.professions')).not.toBe(null);
+            expect(component.querySelector('.professions img')).toBe(null);
             expect(component.querySelector('.row')).not.toBe(null);
             expect(component.querySelector('.professions').children.length).toBe(5);
         });
